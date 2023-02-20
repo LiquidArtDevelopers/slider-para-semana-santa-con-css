@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Slider con Kilometros</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div class="contenedor">
+  <div class="contenido_km">
+  <h2>Selecciona la distancia en KILOMETROS a tu destino</h2>
+  <div class="range-slider">
+    <span id="rs_bala" class="rs_label">0</span>
+    <input id="rs_range_line" class="rs_range" type="range" value="0" min="0" max="1300" step="50">
+    <div class="minimo_maximo">
+      <span>0 km</span><span>1300 km</span>
+    </div>
+  </div>
+
+</div>
+<div class="combustible">
+  <form action="combustible" id="formulario">
+    <h2>Localidad</h2>
+    <select name="localidades" id="localidades">      
+    </select>
+    <h2>Gasolineras</h2>
+    <select name="gasolineras" id="gasolineras">      
+    </select>
+    <h2>Combustibles</h2>
+    <select name="combustibles" id="combustibles">      
+    </select>
+    
+  </form>
+</div>
+  <div class="texto_cambiante">
+    <p>Si llevas un coche Diesel tu gasto sera de xxx euros.  Si tu coche es gasolina gastaras xxx Euros.</p>
+  </div>
+</div>
+
+
+<script  src="./js/script.js"></script>
+<script src="./js/formulario.js"></script>
+</body>
+</html>
