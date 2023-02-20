@@ -101,42 +101,6 @@ localidades.addEventListener("change",function(){
 
 
 
-//*********************************************************************************
-//2) EVENTO DE ESCUCHA PARA CUANDO HAYA UN CAMBIO EN GASOLINERAS (SÓLO CUANDO SE CAMBIE EL SELECT DE GASOLINERAS!)
-gasolineras.addEventListener("change",function(){
-    //LIMPIAMOS LAS OPCIONES DE COMBUSTIBLES
-    removeOptions(combustibles)
-
-    //CONSULTAMOS JSON TENIENDO EN CUENTA LA LOCALIDAD SELECCIONADA Y MOSTRAMOS LAS GASOLINERAS DE DICHA LOCALIDAD COMO OBCIONES
-    fetch(jsonCombustible)
-    .then(response =>{
-        if(response.ok)
-            return response.text()
-        else
-            throw new Error(response.status);
-    })
-    .then(data =>{
-        //PARSEAMOS EL JSON EN UN OBJETO
-        const oJs=JSON.parse(data); //parseamos el JSON a un Objeto. Será un objeto con 4 propiedades, una de ellas será un array con muchos items
-        const ListaEESSPrecio = oJs.ListaEESSPrecio //Hacemso un array conla propiedad que es un array del objeto (ListaEESSPrecio)        
-        for(const i in ListaEESSPrecio){ //recorremos los items de ListaEESSPrecio, donde i será la clave numérica de cada iteración
-            if(ListaEESSPrecio[i].Rótulo==this.value && ListaEESSPrecio[i].Localidad==localidades.value){ //COMPROBAMOS SI EL ITEM DE LA ITERACIÓN SU LOCALIDAD ES LA QUE HEMOS ELEGIDO EN EL SELECT
-                console.log("entra")
-                console.log(ListaEESSPrecio[i].Precio_x0020_Gasolina_x0020_98_x0020_E10)
-            }
-        }     
-    })
-    .catch(err =>{
-        console.error("ERROR", err.message)        
-    });
-})
-//*********************************************************************************
-
-
-
-
-
-
 
 
 
